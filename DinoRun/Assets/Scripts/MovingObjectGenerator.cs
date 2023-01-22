@@ -3,6 +3,8 @@ using UnityEngine;
 public class MovingObjectGenerator : MonoBehaviour
 {
     [SerializeField]
+    private PlayerController _playerController;
+    [SerializeField]
     private float _minFrequency;
     [SerializeField]
     private float _maxFrequency;
@@ -16,7 +18,14 @@ public class MovingObjectGenerator : MonoBehaviour
     {
         transform.position = new Vector3(MapManager.StartLineForMovingObjects, transform.position.y, transform.position.z);
 
+        _playerController.Died.Subscribe(StopGenerating);
+
         GenerateObject();
+    }
+
+    private void StopGenerating()
+    {
+        _isGameOver = true;
     }
 
     private void GenerateObject()

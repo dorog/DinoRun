@@ -832,6 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ba317d3c918a544ba607c55f2b0958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerController: {fileID: 4782656058437858629}
   _minFrequency: 0.5
   _maxFrequency: 0.5
   _objects:
@@ -1462,6 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ba317d3c918a544ba607c55f2b0958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerController: {fileID: 4782656058437858629}
   _minFrequency: 1
   _maxFrequency: 2
   _objects:
@@ -1512,6 +1514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ba317d3c918a544ba607c55f2b0958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerController: {fileID: 4782656058437858629}
   _minFrequency: 1
   _maxFrequency: 2
   _objects:
@@ -1561,6 +1564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ba317d3c918a544ba607c55f2b0958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerController: {fileID: 4782656058437858629}
   _minFrequency: 2
   _maxFrequency: 5
   _objects:
