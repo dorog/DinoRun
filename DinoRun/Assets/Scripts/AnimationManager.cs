@@ -10,11 +10,14 @@ public class AnimationManager : MonoBehaviour
     private string _jumpAnimationTriggerName;
     [SerializeField]
     private string _landAnimationTriggerName;
+    [SerializeField]
+    private string _dieAnimationTriggerName;
 
     private void Start()
     {
         _playerController.Jumped.Subscribe(PlayJumpedAnimation);
         _playerController.Landed.Subscribe(PlayLandedAnimation);
+        _playerController.Died.Subscribe(PlayDiedAnimation);
     }
 
     private void PlayJumpedAnimation()
@@ -25,5 +28,10 @@ public class AnimationManager : MonoBehaviour
     private void PlayLandedAnimation()
     {
         _animator.SetTrigger(_landAnimationTriggerName);
+    }
+
+    private void PlayDiedAnimation()
+    {
+        _animator.SetTrigger(_dieAnimationTriggerName);
     }
 }

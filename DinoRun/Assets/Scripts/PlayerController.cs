@@ -18,15 +18,20 @@ public abstract class PlayerController : MonoBehaviour
     [SerializeField]
     private float _minVelocityBeforeLanding;
 
+    [Header("Die")]
+    private BoxCollider2D _playerBoxCollider;
+
     private bool isJumped;
     private float charger;
 
     private bool isInAir = false;
+    private bool _isAlive = true;
 
     private float _groundY;
 
     public GameEvent Jumped { get; } = new();
     public GameEvent Landed { get; } = new();
+    public GameEvent Died { get; } = new();
 
     private void Awake()
     {
@@ -35,9 +40,12 @@ public abstract class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Charge();
+        if (_isAlive)
+        {
+            Charge();
 
-        Jump();
+            Jump();
+        }
 
         Land();
     }
@@ -88,5 +96,11 @@ public abstract class PlayerController : MonoBehaviour
             isJumped = false;
             charger = 0f;
         }
+    }
+
+    public void GotHit()
+    {
+        Died.Call();
+        _isAlive = false;
     }
 }

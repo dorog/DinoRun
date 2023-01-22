@@ -9,11 +9,14 @@ public class SoundManager : MonoBehaviour
     private AudioSource _jumpedAudioSource;
     [SerializeField]
     private AudioSource _landedAudioSource;
+    [SerializeField]
+    private AudioSource _diedAudioSource;
 
     private void Start()
     {
         _playerController.Jumped.Subscribe(PlayJumpedClip);
         _playerController.Landed.Subscribe(PlayLandedClip);
+        _playerController.Died.Subscribe(PlayDiedClip);
     }
 
     private void PlayJumpedClip()
@@ -24,5 +27,10 @@ public class SoundManager : MonoBehaviour
     private void PlayLandedClip()
     {
         _landedAudioSource.Play();
+    }
+
+    private void PlayDiedClip()
+    {
+        _diedAudioSource.Play();
     }
 }
