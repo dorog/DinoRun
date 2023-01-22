@@ -24,6 +24,10 @@ public class KeyboardPlayerController : MonoBehaviour
     [SerializeField]
     private string _landAnimationTriggerName;
 
+    [Header("Sound")]
+    [SerializeField]
+    private SoundManager _soundManager;
+
     private bool isJumped;
     private float charger;
 
@@ -71,6 +75,7 @@ public class KeyboardPlayerController : MonoBehaviour
         {
             isInAir = false;
             _animator.SetTrigger(_landAnimationTriggerName);
+            _soundManager.PlayLandedClip();
         }
     }
 
@@ -80,6 +85,7 @@ public class KeyboardPlayerController : MonoBehaviour
         {
             _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _jumpForce * charger);
             _animator.SetTrigger(_jumpAnimationTriggerName);
+            _soundManager.PlayJumpedClip();
 
             isInAir = true;
             isJumped = false;
