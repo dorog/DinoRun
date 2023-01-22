@@ -831,7 +831,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326424744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.35, y: -1.6, z: 0}
+  m_LocalPosition: {x: -5.35, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -850,7 +850,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d408807bf7a3ed84fb824d10249ec11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1326424745}
+  _rigidbody2d: {fileID: 1326424749}
+  _maxChargingSeconds: 0.5
+  _jumpForce: 20
+  _jumpAnimationTriggerName: Jumped
+  _groundBoxCollider: {fileID: 292984378}
+  _minDistanceFromGround: 0.2
+  _minVelocityBeforeLanding: 0.5
+  _animator: {fileID: 1326424745}
+  _landAnimationTriggerName: Landed
 --- !u!50 &1326424749
 Rigidbody2D:
   serializedVersion: 4
