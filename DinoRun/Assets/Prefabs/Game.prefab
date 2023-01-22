@@ -151,7 +151,7 @@ RectTransform:
   - {fileID: 1009528777}
   - {fileID: 1997584541036370951}
   m_Father: {fileID: 1671985543579535411}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -798,6 +798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4782656056515160847}
   - component: {fileID: 4782656056515160846}
+  - component: {fileID: 1451215472160528823}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -833,10 +834,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 4782656058437858629}
-  _minFrequency: 0.5
-  _maxFrequency: 0.5
-  _objects:
-  - {fileID: -6869238056882660342, guid: 9f789835efe517a48bb677e8e427b84a, type: 3}
+  _movingObjectsContainer: {fileID: 1451215472160528823}
+--- !u!114 &1451215472160528823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782656056515160844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826e69cb89d16224baad28cf9997d3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _difficultyManager: {fileID: 5188877473188175646}
+  _movingObjectsLevels:
+  - MinFrequency: 0.5
+    MaxFrequency: 0.5
+    MovingObjects:
+    - {fileID: -6869238056882660342, guid: 9f789835efe517a48bb677e8e427b84a, type: 3}
 --- !u!1 &4782656056603169195
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +883,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1671985543579535411}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4782656056603169194
 MonoBehaviour:
@@ -916,7 +932,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1671985543579535411}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4782656056722711076
 MonoBehaviour:
@@ -932,6 +948,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startObjectSpeed: 5
   _playerController: {fileID: 4782656058437858629}
+  _difficultyManager: {fileID: 5188877473188175646}
+  _difficultyLevelTimeScales:
+  - 1
+  - 1.2
+  - 1.5
+  - 1.75
+  - 2
+  - 2.5
+  - 3
 --- !u!1 &4782656056840394561
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +990,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1671985543579535411}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &4782656056840394565
 AudioSource:
@@ -978,7 +1003,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7f099ae3678e25c428cb8f34a213e36d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1429,6 +1454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4782656057698795539}
   - component: {fileID: 4782656057698795538}
+  - component: {fileID: 3393771063048321404}
   m_Layer: 0
   m_Name: Cactuses
   m_TagString: Untagged
@@ -1464,12 +1490,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 4782656058437858629}
-  _minFrequency: 1
-  _maxFrequency: 2
-  _objects:
-  - {fileID: 4561614079490403707, guid: e379348beb55aa646b2f15c3466406b6, type: 3}
-  - {fileID: 5188584445014484139, guid: a25e46c0e60cb4f469b987a1f929dd76, type: 3}
-  - {fileID: 8707598681564998766, guid: 024bb21bbf2fc4c49ab0769ea0ba2629, type: 3}
+  _movingObjectsContainer: {fileID: 3393771063048321404}
+--- !u!114 &3393771063048321404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782656057698795536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826e69cb89d16224baad28cf9997d3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _difficultyManager: {fileID: 5188877473188175646}
+  _movingObjectsLevels:
+  - MinFrequency: 5
+    MaxFrequency: 10
+    MovingObjects:
+    - {fileID: 5188584445014484139, guid: a25e46c0e60cb4f469b987a1f929dd76, type: 3}
+  - MinFrequency: 4
+    MaxFrequency: 8
+    MovingObjects:
+    - {fileID: 5188584445014484139, guid: a25e46c0e60cb4f469b987a1f929dd76, type: 3}
+    - {fileID: 4561614079490403707, guid: e379348beb55aa646b2f15c3466406b6, type: 3}
+  - MinFrequency: 3
+    MaxFrequency: 5.5
+    MovingObjects:
+    - {fileID: 4561614079490403707, guid: e379348beb55aa646b2f15c3466406b6, type: 3}
+    - {fileID: 5188584445014484139, guid: a25e46c0e60cb4f469b987a1f929dd76, type: 3}
+    - {fileID: 8707598681564998766, guid: 024bb21bbf2fc4c49ab0769ea0ba2629, type: 3}
+  - MinFrequency: 2
+    MaxFrequency: 2.5
+    MovingObjects:
+    - {fileID: 4561614079490403707, guid: e379348beb55aa646b2f15c3466406b6, type: 3}
+    - {fileID: 5188584445014484139, guid: a25e46c0e60cb4f469b987a1f929dd76, type: 3}
+    - {fileID: 8707598681564998766, guid: 024bb21bbf2fc4c49ab0769ea0ba2629, type: 3}
 --- !u!1 &4782656057838740838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,6 +1536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4782656057838740857}
   - component: {fileID: 4782656057838740856}
+  - component: {fileID: 3288432534933008192}
   m_Layer: 0
   m_Name: Clouds
   m_TagString: Untagged
@@ -1515,11 +1572,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 4782656058437858629}
-  _minFrequency: 1
-  _maxFrequency: 2
-  _objects:
-  - {fileID: 4885385275599694723, guid: b7d1b553fa3e84b49a353673e9ab5899, type: 3}
-  - {fileID: 5549056875828008915, guid: fbdec9a811ae58140b8b2b2efc440277, type: 3}
+  _movingObjectsContainer: {fileID: 3288432534933008192}
+--- !u!114 &3288432534933008192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782656057838740838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826e69cb89d16224baad28cf9997d3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _difficultyManager: {fileID: 5188877473188175646}
+  _movingObjectsLevels:
+  - MinFrequency: 1
+    MaxFrequency: 5
+    MovingObjects:
+    - {fileID: 4885385275599694723, guid: b7d1b553fa3e84b49a353673e9ab5899, type: 3}
+    - {fileID: 5549056875828008915, guid: fbdec9a811ae58140b8b2b2efc440277, type: 3}
 --- !u!1 &4782656058028861528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,6 +1602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4782656058028861531}
   - component: {fileID: 4782656058028861530}
+  - component: {fileID: 3819760404708468552}
   m_Layer: 0
   m_Name: Rocks
   m_TagString: Untagged
@@ -1565,11 +1638,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 4782656058437858629}
-  _minFrequency: 2
-  _maxFrequency: 5
-  _objects:
-  - {fileID: 7334962893153337338, guid: 08e98fed61223f9478399d5669e010cc, type: 3}
-  - {fileID: 7320704840414879198, guid: be8210102bdb49e448d5799211892fe1, type: 3}
+  _movingObjectsContainer: {fileID: 3819760404708468552}
+--- !u!114 &3819760404708468552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782656058028861528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826e69cb89d16224baad28cf9997d3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _difficultyManager: {fileID: 5188877473188175646}
+  _movingObjectsLevels:
+  - MinFrequency: 2
+    MaxFrequency: 5
+    MovingObjects:
+    - {fileID: 7334962893153337338, guid: 08e98fed61223f9478399d5669e010cc, type: 3}
+    - {fileID: 7320704840414879198, guid: be8210102bdb49e448d5799211892fe1, type: 3}
 --- !u!1 &4782656058437858625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,7 +1862,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1671985543579535411}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4782656058595184013
 MonoBehaviour:
@@ -1790,6 +1878,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startLineBuffer: 0
   _deadLineBuffer: 0
+--- !u!1 &6601700664499566710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5267351004098233872}
+  - component: {fileID: 5188877473188175646}
+  m_Layer: 0
+  m_Name: DifficultyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5267351004098233872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601700664499566710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1671985543579535411}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5188877473188175646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601700664499566710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9669766f0cb354f9ec07b23768cefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 4782656058437858629}
+  _difficultyTimes:
+  - 1
+  - 2
+  - 5
+  - 10
+  - 20
+  - 30
+  - 50
 --- !u!1 &7365793828120700008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,6 +1962,7 @@ Transform:
   - {fileID: 4782656058437858626}
   - {fileID: 4782656057136103888}
   - {fileID: 4782656057035325704}
+  - {fileID: 5267351004098233872}
   - {fileID: 4782656056722711079}
   - {fileID: 4782656058595184012}
   - {fileID: 4782656056840394560}

@@ -5,12 +5,7 @@ public class MovingObjectGenerator : MonoBehaviour
     [SerializeField]
     private PlayerController _playerController;
     [SerializeField]
-    private float _minFrequency;
-    [SerializeField]
-    private float _maxFrequency;
-
-    [SerializeField]
-    private MovingObject[] _objects;
+    private MovingObjectsContainer _movingObjectsContainer;
 
     private bool _isGameOver = false;
 
@@ -32,11 +27,11 @@ public class MovingObjectGenerator : MonoBehaviour
     {
         if (!_isGameOver)
         {
-            int objectIndex = Random.Range(0, _objects.Length);
+            MovingObjectInfo movingObjectInfo = _movingObjectsContainer.GetRandomMovingObject();
 
-            Instantiate(_objects[objectIndex], transform);
+            Instantiate(movingObjectInfo.MovingObject, transform);
 
-            float nextTime = Random.Range(_minFrequency, _maxFrequency);
+            float nextTime = Random.Range(movingObjectInfo.MinFrequency, movingObjectInfo.MaxFrequency);
 
             Invoke(nameof(GenerateObject), nextTime);
         }
