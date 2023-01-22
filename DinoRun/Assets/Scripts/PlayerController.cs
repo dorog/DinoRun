@@ -8,7 +8,9 @@ public abstract class PlayerController : MonoBehaviour
     [SerializeField]
     private float _maxChargingSeconds;
     [SerializeField]
-    private float _jumpForce;
+    private float _chargingJumpForce;
+    [SerializeField]
+    private float _baseJumpForce;
 
     [Header("Land")]
     [SerializeField]
@@ -17,9 +19,6 @@ public abstract class PlayerController : MonoBehaviour
     private float _minDistanceFromGround;
     [SerializeField]
     private float _minVelocityBeforeLanding;
-
-    [Header("Die")]
-    private BoxCollider2D _playerBoxCollider;
 
     private bool isJumped;
     private float charger;
@@ -88,7 +87,7 @@ public abstract class PlayerController : MonoBehaviour
     {
         if (isJumped)
         {
-            _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _jumpForce * charger);
+            _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _baseJumpForce + _chargingJumpForce * charger);
 
             Jumped.Call();
 
